@@ -22,6 +22,7 @@ public class EurekaClientApplication {
 
 	@RequestMapping("/hi")
 	public String home(@RequestParam String name) {
+		//test for git update 1
 		return "hi " + name + ",i am from port:" + port;
 	}
 }
