@@ -24,6 +24,7 @@ public class EurekaClientApplication {
 	public String home(@RequestParam String name) {
 		//test for git update 1
 		//still test for git  20180507   --01
+		//still test for git  20180507 --000002
 		return "hi " + name + ",i am from port:" + port;
 	}
 }
