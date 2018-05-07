@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EurekaZipkinApplication {
 
 	public static void main(String[] args) {
+		//test
 		SpringApplication.run(EurekaZipkinApplication.class, args);
 	}
 }
