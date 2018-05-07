@@ -10,6 +10,7 @@ public class EurekaApplication {
 
 	public static void main(String[] args) {
 		//test for git update
+		//still test 
 		SpringApplication.run(EurekaApplication.class, args);
 	}
 }
