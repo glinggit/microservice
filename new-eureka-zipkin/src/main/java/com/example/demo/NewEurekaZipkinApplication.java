@@ -3,11 +3,13 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import zipkin.server.EnableZipkinServer;
+
 @SpringBootApplication
-public class EurekaZipkinApplication {
+@EnableZipkinServer
+public class NewEurekaZipkinApplication {
 
 	public static void main(String[] args) {
-		//test
-		SpringApplication.run(EurekaZipkinApplication.class, args);
+		SpringApplication.run(NewEurekaZipkinApplication.class, args);
 	}
 }
