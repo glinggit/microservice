@@ -1,12 +1,72 @@
+#server:
+#  port: 8761
+#  
+##通过eureka.client.registerWithEureka：false和fetchRegistry：false来表明自己是一个eureka server.  
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka12/
+  
+  
+#集群的配置    
+#加了这个配置导致集群失败，why？？？   
+#spring:
+#  application:
+#    name: discovery-cluster
+    
+---
 server:
   port: 8761
-  
-#通过eureka.client.registerWithEureka：false和fetchRegistry：false来表明自己是一个eureka server.  
+
+spring:
+  profiles: peer1
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer1
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka12/
+      defaultZone: http://peer2:8769/eureka/,http://peer3:8768/eureka/
+      
+
+
+---
+
+server:
+  port: 8769
+
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer3:8768/eureka/
+      
+      
+      
+---
+server:
+  port: 8768
+spring:
+  profiles: peer3
+eureka:
+  instance:
+    hostname: peer3
+  client:
+    service-url:
+      default-zone: http://peer1:8761/eureka/,http://peer2:8769/eureka/
+
+
+
+
+
+
+
+
+
+      
